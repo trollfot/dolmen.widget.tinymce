@@ -1,0 +1,11 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:grok="http://namespaces.zope.org/grok">
+
+  <include package="menhir.library.jquery" />
+  <include package="menhir.library.tinyMCE" />
+  <include package="megrok.z3cform" />
+  <include package="megrok.resourcelibrary" file="meta.zcml" />
+  <grok:grok package="." />
+
+</configure>
