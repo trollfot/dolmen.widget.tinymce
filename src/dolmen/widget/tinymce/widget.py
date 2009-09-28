@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import grokcore.view as grok
-import megrok.z3cform as z3cform
+import megrok.z3cform.base as z3cform
 from zope.interface import Interface
 from zope.schema.interfaces import IText
 from dolmen.widget.tinymce import JqueryTinyMCE
