@@ -4,6 +4,7 @@
 
   <include package="menhir.library.jquery" />
   <include package="menhir.library.tinyMCE" />
+  <include package="megrok.z3cform.base" />
   <include package="megrok.z3cform.base" file="meta.zcml" />
   <include package="megrok.resourcelibrary" file="meta.zcml" />
   <grok:grok package="." />
