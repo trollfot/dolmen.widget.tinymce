@@ -40,8 +40,6 @@ class RichWidgetDisplay(z3cform.WidgetTemplate):
     z3cform.directives.mode(DISPLAY_MODE)
 
 
-@grok.adapter(IText, IFormLayer)
-@grok.implementer(IFieldWidget)
 def TinyMCEWidgetFactory(field, request):
     """IFieldWidget factory for TinyMCEWidget."""
     return FieldWidget(field, TinyMCEWidget(request))
