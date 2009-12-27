@@ -1,14 +1,10 @@
 # -*- coding: utf-8 -*-
 
-import grok
-from megrok import resourcelibrary
-from menhir.library.tinyMCE import TinyMCE
-from menhir.library.jquery import JQueryBase
+from megrok import resource
+from hurry.jquery import jquery
+from hurry.tinymce import tinymce
 
 
-class JqueryTinyMCE(resourcelibrary.ResourceLibrary):
-    grok.name('dolmen.widget.tinymce')
-    resourcelibrary.depend(TinyMCE)
-    resourcelibrary.depend(JQueryBase)
-    resourcelibrary.directory('resources')
-    resourcelibrary.include('jquery_tiny_mce.js')
+class JqueryTinyMCE(resource.ResourceLibrary):
+    resource.path('resources')
+    resource.resource('jquery_tiny_mce.js', depends=[tinymce, jquery])
