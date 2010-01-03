@@ -3,7 +3,7 @@
     xmlns:grok="http://namespaces.zope.org/grok">
 
   <include package="megrok.resource" />
-  <include package="menhir.library.jquery" />
+  <include package="hurry.jquery" />
   <include package="hurry.zopetinymce" />
   <include package="megrok.z3cform.base" />
   <include package="megrok.z3cform.base" file="meta.zcml" />
