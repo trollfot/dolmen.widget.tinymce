@@ -1,2 +1,2 @@
-recursive-include src/dolmen/widget/tinymce *.txt *.py *.zcml *.pt
+recursive-include src/dolmen/widget/tinymce *.txt *.py *.zcml *.pt *.js
 recursive-include docs *.txt
