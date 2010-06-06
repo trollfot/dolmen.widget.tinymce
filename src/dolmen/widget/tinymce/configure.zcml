@@ -5,8 +5,8 @@
   <include package="megrok.resource" />
   <include package="hurry.jquery" />
   <include package="hurry.zopetinymce" />
-  <include package="megrok.z3cform.base" />
-  <include package="megrok.z3cform.base" file="meta.zcml" />
+  <include package="zeam.form.ztk" />
+
   <grok:grok package="." />
 
 </configure>

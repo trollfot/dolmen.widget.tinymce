@@ -1,19 +1,22 @@
 # -*- coding: utf-8 -*-
 
 import grokcore.view as grok
-import megrok.z3cform.base as z3cform
 from zope.interface import Interface
 from zope.schema.interfaces import IText
 from dolmen.widget.tinymce import JqueryTinyMCE
-from z3c.form.widget import FieldWidget
-from z3c.form.browser.textarea import TextAreaWidget
-from z3c.form.interfaces import IFieldWidget, IFormLayer
-from z3c.form.interfaces import IField, INPUT_MODE, DISPLAY_MODE
+from zeam.form.ztk.widgets import text
+from zeam.form.base.widgets import DisplayFieldWidget
+
+grok.templatedir('templates')
 
 
-class TinyMCEWidget(TextAreaWidget):
+class TinyMCEWidget(text.TextFieldWidget):
     """A textarea widget with a tinyMCE editor.
-    """   
+    """
+    grok.name('tinymce.input')
+    grok.template('input')
+    grok.adapts(text.TextSchemaField, Interface, Interface)
+
     @property
     def script(self):
         JqueryTinyMCE.need()
@@ -21,25 +24,10 @@ class TinyMCEWidget(TextAreaWidget):
           $(document).ready(function(){
           $('textarea[name="%s"]').tinymce();
         });
-        </script>""" % self.name
+        </script>""" % self.identifier
 
 
-class RichWidgetInput(z3cform.WidgetTemplate):
-    grok.context(Interface)
-    grok.layer(IFormLayer)
-    grok.template('templates/input.pt')
-    z3cform.directives.widget(TinyMCEWidget)
-    z3cform.directives.mode(INPUT_MODE)
-
-
-class RichWidgetDisplay(z3cform.WidgetTemplate):
-    grok.context(Interface)
-    grok.layer(IFormLayer)
-    grok.template('templates/display.pt')
-    z3cform.directives.widget(TinyMCEWidget)
-    z3cform.directives.mode(DISPLAY_MODE)
-
-
-def TinyMCEWidgetFactory(field, request):
-    """IFieldWidget factory for TinyMCEWidget."""
-    return FieldWidget(field, TinyMCEWidget(request))
+class RichWidgetDisplay(DisplayFieldWidget):
+    grok.name('tinymce.display')
+    grok.template('display')
+    grok.adapts(text.TextSchemaField, Interface, Interface)
