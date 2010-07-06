@@ -3,7 +3,7 @@
 from setuptools import setup, find_packages
 from os.path import join
 
-version = '1.0a1'
+version = '1.0b1'
 readme = open(join('src', 'dolmen', 'widget', 'tinymce', 'README.txt')).read()
 history = open(join('docs', 'HISTORY.txt')).read()
 
@@ -14,8 +14,8 @@ install_requires = [
     'hurry.zopetinymce',
     'megrok.resource',
     'setuptools',
-    'zeam.form.base',
-    'zeam.form.ztk',
+    'zeam.form.base >= 1.0rc1',
+    'zeam.form.ztk >= 1.0rc1',
     'zope.interface',
     ],
 

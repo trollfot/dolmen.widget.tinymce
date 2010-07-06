@@ -5,17 +5,18 @@ from zope.interface import Interface
 from dolmen.widget.tinymce import JqueryTinyMCE
 from zeam.form.ztk.widgets import text
 from zeam.form.base.widgets import DisplayFieldWidget
+from zeam.form.base.markers import ModeMarker
 
 grok.templatedir('templates')
 
-TINYMCE_INPUT = 'tinymce.input'
-TINYMCE_DISPLAY = 'tinymce.display'
+TINYMCE_INPUT = ModeMarker('TINYMCE.INPUT')
+TINYMCE_DISPLAY = ModeMarker('TINYMCE.DISPLAY', extractable=False)
 
 
 class TinyMCEWidget(text.TextFieldWidget):
     """A textarea widget with a tinyMCE editor.
     """
-    grok.name(TINYMCE_INPUT)
+    grok.name(str(TINYMCE_INPUT))
     grok.template('input')
     grok.adapts(text.TextSchemaField, Interface, Interface)
 
@@ -30,6 +31,6 @@ class TinyMCEWidget(text.TextFieldWidget):
 
 
 class RichWidgetDisplay(DisplayFieldWidget):
-    grok.name(TINYMCE_DISPLAY)
+    grok.name(str(TINYMCE_DISPLAY))
     grok.template('display')
     grok.adapts(text.TextSchemaField, Interface, Interface)
