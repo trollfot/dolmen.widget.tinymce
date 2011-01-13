@@ -13,8 +13,8 @@ install_requires = [
     'js.jquery',
     'js.tinymce',
     'setuptools',
-    'zeam.form.base >= 1.0rc1',
-    'zeam.form.ztk >= 1.0rc1',
+    'zeam.form.base >= 1.0',
+    'zeam.form.ztk >= 1.0',
     'zope.interface',
     ],
 
@@ -28,6 +28,8 @@ tests_require = [
     'zope.publisher',
     'zope.schema',
     'zope.security',
+    'zope.i18n',
+    'zope.traversing',
     ]
 
 setup(name='dolmen.widget.tinymce',
