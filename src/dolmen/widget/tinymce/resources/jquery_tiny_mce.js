@@ -4,8 +4,9 @@ $('form').bind('form-pre-serialize', function(e) {
 
 $.fn.tinymce = function(){
     return this.each(function(){
-        // I don't think the style declaration is not really used in this sense, but I left it anyway
-        preString = "<div class='jqHTML_frame' style='width:"+$(this).css("width")+"px;height:" + ($(this).css("height")+20) + "px;'>";
+        preString = ("<div class='jqHTML_frame' style='width:" +
+		     $(this).css("width") + "px;height:" +
+		     ($(this).css("height") + 20) + "px;'>");
         postString = "</div>";
         $(this).wrap(preString + postString);
 
@@ -25,8 +26,7 @@ function initMCE()
        theme_advanced_buttons2: "styleselect,bold,italic,underline,separator,link,separator,bullist,numlist,outdent,indent,tablecontrols",
        theme_advanced_buttons3: "",
        theme_advanced_toolbar_location : "top",
-       theme_advanced_toolbar_align : "left",
-       content_css : "css/content.css"});
+       theme_advanced_toolbar_align : "left",});
 }
 // initialize tiny mce
 initMCE();
