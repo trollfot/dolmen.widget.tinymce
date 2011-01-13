@@ -51,7 +51,7 @@ rendering::
   >>> form.updateWidgets()
  
   >>> print form.fieldWidgets.get('form.field.paintings').render() 
-  <textarea id="form-field-paintings" name="form.field.paintings" class="field-text" cols="80" rows="5"></textarea>
+  <textarea id="form-field-paintings" name="form.field.paintings" class="field field-text field-required" cols="80" rows="5"></textarea>
 
 To get the tinyMCE widget, you simply need to use the "mode" of the
 field, to indicate what you want to render::
@@ -64,12 +64,13 @@ field, to indicate what you want to render::
 
   >>> print form.fieldWidgets.get('form.field.paintings').render()
   <script type="text/javascript">
-          $(document).ready(function(){
-          $('textarea[name="form.field.paintings"]').tinymce();
-        });
-        </script>
+     $(document).ready(function(){
+        $('textarea[name="form.field.paintings"]').tinymce();
+     });
+  </script>
   <textarea id="form-field-paintings"
-            name="form.field.paintings" class="field-text"
+            name="form.field.paintings"
+            class="field field-text field-required"
             cols="80" rows="5"></textarea>
 
 The modes can be 'tinymce.input' for an input widget and
