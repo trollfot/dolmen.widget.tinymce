@@ -8,11 +8,10 @@ readme = open(join('src', 'dolmen', 'widget', 'tinymce', 'README.txt')).read()
 history = open(join('docs', 'HISTORY.txt')).read()
 
 install_requires = [
+    'fanstatic',
     'grokcore.view',
-    'hurry.jquery',
-    'hurry.tinymce',
-    'hurry.zopetinymce',
-    'megrok.resource',
+    'js.jquery',
+    'js.tinymce',
     'setuptools',
     'zeam.form.base',
     'zeam.form.ztk',
@@ -57,4 +56,8 @@ setup(name='dolmen.widget.tinymce',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
       ],
+      entry_points = """
+      [fanstatic.libraries]
+      dolmentinymce = dolmen.widget.tinymce:DolmenTinyLibrary
+      """,
       )

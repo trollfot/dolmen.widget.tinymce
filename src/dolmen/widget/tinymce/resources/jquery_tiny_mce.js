@@ -18,11 +18,11 @@ function initMCE()
 {
     tinyMCE.init({ mode : "none",
        theme : "advanced",
-       plugins : "advhr,advlink,style",
+       plugins : "advhr,advlink,style,table",
        theme_advanced_layout_manager : "SimpleLayout",
        theme_advanced_disable: "",
        theme_advanced_buttons1: "pasteword,justifyleft,justifycenter,justifyright,justifyfull,separator,removeformat,separator,charmap,advhr,separator,styleprops",
-       theme_advanced_buttons2: "styleselect,bold,italic,underline,separator,link,separator,bullist,numlist,outdent,indent,",
+       theme_advanced_buttons2: "styleselect,bold,italic,underline,separator,link,separator,bullist,numlist,outdent,indent,tablecontrols",
        theme_advanced_buttons3: "",
        theme_advanced_toolbar_location : "top",
        theme_advanced_toolbar_align : "left",
