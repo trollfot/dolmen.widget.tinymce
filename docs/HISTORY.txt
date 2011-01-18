@@ -1,6 +1,12 @@
 Changelog
 =========
 
+1.0b3 (2011-01-18)
+------------------
+
+* Corrected entry points and inclusion path.
+
+
 1.0b2 (2011-01-13)
 ------------------
 

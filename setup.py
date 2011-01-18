@@ -3,7 +3,7 @@
 from setuptools import setup, find_packages
 from os.path import join
 
-version = '1.0b2'
+version = '1.0b3'
 readme = open(join('src', 'dolmen', 'widget', 'tinymce', 'README.txt')).read()
 history = open(join('docs', 'HISTORY.txt')).read()
 
@@ -60,6 +60,6 @@ setup(name='dolmen.widget.tinymce',
       ],
       entry_points = """
       [fanstatic.libraries]
-      dolmentinymce = dolmen.widget.tinymce:DolmenTinyLibrary
+      jquerytinymce = dolmen.widget.tinymce:DolmenTinyLibrary
       """,
       )
