@@ -4,7 +4,7 @@ dolmen.widget.tinymce
 
 `dolmen.widget.tinymce` is a package that provides a useable and
 pluggable way to render a text field as a WYSIWG editor in a
-`zeam.form` Form.
+`dolmen.forms` Form.
 
 Example
 =======
@@ -28,7 +28,7 @@ We have now a model that defines a text field. We want to edit/view
 this content, using a rich editor, allowing to input rich text and to
 display it as valid HTML. To do so, we define a form:
 
-  >>> from zeam.form.ztk import Form, Fields
+  >>> from dolmen.forms.base import Form, Fields
 
   >>> class EditCave(Form):
   ...    grok.name('edit')
@@ -42,7 +42,7 @@ display it as valid HTML. To do so, we define a form:
 At this point, if we instanciate the form, we have a normal
 rendering::
 
-  >>> from zope.publisher.browser import TestRequest
+  >>> from cromlech.io.testing import TestRequest
 
   >>> homecave = Grotto()
   >>> request = TestRequest()
@@ -64,7 +64,7 @@ field, to indicate what you want to render::
 
   >>> print form.fieldWidgets.get('form.field.paintings').render()
   <script type="text/javascript">
-     $(document).ready(function(){
+     $(document).ready(function() {
         $('textarea[name="form.field.paintings"]').tinymce();
      });
   </script>

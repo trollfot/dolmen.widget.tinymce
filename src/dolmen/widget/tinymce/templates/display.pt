@@ -3,9 +3,9 @@
       tal:omit-tag="">
 
   <div id="" name="" class=""
-       tal:attributes="name widget/identifier;
-		       id widget/htmlId;
-		       class widget/htmlClass"
-       tal:content="structure widget/inputValue" />
+       tal:attributes="name widget.identifier;
+		       id widget.htmlId();
+		       class widget.htmlClass()"
+       tal:content="structure widget.inputValue()" />
 
 </html>

@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
 
-import grokcore.view as grok
-from zope.interface import Interface
+from os import path
+from dolmen.forms.base.markers import ModeMarker
+from dolmen.forms.base.widgets import DisplayFieldWidget
+from dolmen.forms.ztk.widgets import text
+from dolmen.template import TALTemplate
 from dolmen.widget.tinymce import JqueryTinyMCE
-from zeam.form.ztk.widgets import text
-from zeam.form.base.widgets import DisplayFieldWidget
-from zeam.form.base.markers import ModeMarker
+from grokcore.component import name, adapts
+from zope.interface import Interface
 
-grok.templatedir('templates')
-
+TEMPLATE_DIR = path.join(path.dirname(__file__), 'templates')
 TINYMCE_INPUT = ModeMarker('TINYMCE.INPUT')
 TINYMCE_DISPLAY = ModeMarker('TINYMCE.DISPLAY', extractable=False)
 
@@ -16,21 +17,23 @@ TINYMCE_DISPLAY = ModeMarker('TINYMCE.DISPLAY', extractable=False)
 class TinyMCEWidget(text.TextFieldWidget):
     """A textarea widget with a tinyMCE editor.
     """
-    grok.name(str(TINYMCE_INPUT))
-    grok.template('input')
-    grok.adapts(text.TextSchemaField, Interface, Interface)
+    name(str(TINYMCE_INPUT))
+    adapts(text.TextSchemaField, Interface, Interface)
+
+    template = TALTemplate(path.join(TEMPLATE_DIR, 'input.pt'))
 
     @property
     def script(self):
         JqueryTinyMCE.need()
         return """<script type="text/javascript">
-          $(document).ready(function(){
+          $(document).ready(function() {
           $('textarea[name="%s"]').tinymce();
         });
         </script>""" % self.identifier
 
 
 class RichWidgetDisplay(DisplayFieldWidget):
-    grok.name(str(TINYMCE_DISPLAY))
-    grok.template('display')
-    grok.adapts(text.TextSchemaField, Interface, Interface)
+    name(str(TINYMCE_DISPLAY))
+    adapts(text.TextSchemaField, Interface, Interface)
+
+    template = TALTemplate(path.join(TEMPLATE_DIR, 'display.pt'))
