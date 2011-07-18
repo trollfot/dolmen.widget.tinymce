@@ -1,6 +1,12 @@
 Changelog
 =========
 
+2.0a1 (2011-07-18)
+------------------
+
+* Evolution to use `Cromlech` and move away from `Zope3`.
+
+
 1.0b3 (2011-01-18)
 ------------------
 
