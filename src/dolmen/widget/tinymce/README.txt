@@ -42,7 +42,7 @@ display it as valid HTML. To do so, we define a form:
 At this point, if we instanciate the form, we have a normal
 rendering::
 
-  >>> from cromlech.io.testing import TestRequest
+  >>> from cromlech.browser.testing import TestRequest
 
   >>> homecave = Grotto()
   >>> request = TestRequest()

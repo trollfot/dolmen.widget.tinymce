@@ -3,7 +3,7 @@
 from setuptools import setup, find_packages
 from os.path import join
 
-version = '2.0a1'
+version = '2.0'
 readme = open(join('src', 'dolmen', 'widget', 'tinymce', 'README.txt')).read()
 history = open(join('docs', 'HISTORY.txt')).read()
 
@@ -21,7 +21,7 @@ install_requires = [
 tests_require = [
     'grokcore.component',
     'dolmen.forms.ztk [test]',
-    'cromlech.io [test]',
+    'cromlech.browser [test] >= 0.5',
     'zope.component',
     'zope.interface',
     'zope.schema',
